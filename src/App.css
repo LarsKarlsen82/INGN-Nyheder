@@ -4,7 +4,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Old+Persian&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Whisper&display=swap');
 
-
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
@@ -27,8 +26,9 @@
 body {
   margin: 6rem;
   background-color: #F6F3F3;
-  width: 1200px !important; 
+  width: 100%; /* Adjusted for responsiveness */
   padding-bottom: 5rem;
+  max-width: 1200px;
 }
 
 footer {
@@ -41,7 +41,6 @@ footer {
   justify-content: center; 
   align-items: center; 
 }
-
 
 .breaking-news-headline {
   display: block;
@@ -110,6 +109,7 @@ footer {
     z-index: 2;
   }
 }
+
 .animated {
   -webkit-animation-duration: 0.2s;
   -webkit-animation-fill-mode: both;
@@ -252,7 +252,11 @@ footer {
   } 
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) and (max-width: 1023px) {
+  body {
+    margin: 3rem; /* Adjusted for responsiveness */
+  }
+
   .breaking-news-headline {
     margin-left: 100%; /* Adjusted for responsiveness */
   }
@@ -263,36 +267,34 @@ footer {
 
   #breaking-news-container {
     width: 100%; /* Adjusted for responsiveness */
-    
+  }
+}
+
+@media (max-width: 575px) {
+
+
+  .max-w-xl {
+    margin-left: 0;
+    padding: 0;
+    max-width: 300px;
   }
 
-  @media only screen and (max-width: 575px) {
-    .max-w-xl {
-      margin-left: 0;
-      padding: 0;
-      max-width: 300px;
-    }
-    #breaking-news-container {
-      max-width: 289px;
-      width: 100%;
-    }
-  
-    .breaking-news-headline {
-      margin-left: 0; /* Adjusted for responsiveness */
-    }
-  
-    .breaking-news-title {
-      width: 20%; /* Adjusted for responsiveness */
-    }
-  
-    .marquee {
-      animation-duration: 5s; /* Adjusted for responsiveness */
-    }
-    .breaking-news-title{
-      width: 25%;
-      margin-left:0;
-      font-size: small;
-      padding: 3px;
-    }
+  #breaking-news-container {
+    max-width: 289px;
+    width: 100%;
+  }
+
+  .breaking-news-headline {
+    margin-left: 0; /* Adjusted for responsiveness */
+  }
+
+  .breaking-news-title {
+    width: 20%; /* Adjusted for responsiveness */
+    font-size: small;
+    padding: 3px;
+  }
+
+  .marquee {
+    animation-duration: 5s; /* Adjusted for responsiveness */
   }
 }
