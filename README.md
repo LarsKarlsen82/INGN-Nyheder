@@ -57,3 +57,4 @@ Der er lavet :
 Alle: Overskrifter for alle artikler
 * Nå man klikker på "Læs mere" så videresendes man direkte til den pågældende side
 * Links på NavBAr viser alle artikler indenfor en kategori f.eks. "Indland"
+* Login referer kun til contentful.com, nyhedsvirksomhedens ansvarlige skal give adgang til journalisten, ellers er der link til min email.
