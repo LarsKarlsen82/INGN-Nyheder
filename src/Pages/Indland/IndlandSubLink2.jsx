@@ -87,7 +87,7 @@ import { client } from '../../Static/contentfulClient';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw'; // Import rehypeRaw
 
-const IndlandSubLink = () => {
+const IndlandSubLink2 = () => {
     const { postId } = useParams();
     const [blogPost, setBlogPost] = useState(null);
     const [breaks, setBreaks] = useState([]);
@@ -98,7 +98,7 @@ const IndlandSubLink = () => {
             .then((res) => {
                 if (res.items.length > 0) {
                     // Assuming you have the EntryID of the desired post, replace 'YOUR_ENTRY_ID' with it
-                    const entryId = '4E0vv1I2DwrMr8yJpUtKuQ';
+                    const entryId = '2BEVzt02xl4VJrBTqgF0IP';
                     const foundPost = res.items.find(item => item.sys.id === entryId);
                     setBlogPost(foundPost);
                 } else {
@@ -163,4 +163,5 @@ const IndlandSubLink = () => {
     );
 };
 
-export default IndlandSubLink;
+export default IndlandSubLink2;
+

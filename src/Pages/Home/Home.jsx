@@ -78,7 +78,7 @@ const Home = ({ setSelectedPost }) => {
                         <div className="bg-white rounded-lg overflow-hidden">
                             <div className="p-4">
                                 <h2 className="text-xl font-semibold mb-2">{post.fields?.blogTitle || 'Unknown Title'}</h2>
-                                <p className="text-gray-500 mb-2">
+                                <p className="text-red-600 mb-2">
                                     {post.fields?.createdDate ? (
                                         new Intl.DateTimeFormat('da-DK', { // Use Danish locale
                                             timeZone: 'Europe/Copenhagen',

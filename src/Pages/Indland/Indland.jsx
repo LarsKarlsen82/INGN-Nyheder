@@ -1,26 +1,35 @@
 //Indland.jsx
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { client } from '../../Static/contentfulClient';
 import entryIdMapping from "../../Static/entryIdMapping";
 
 const Indland = () => {
-    const { postId } = useParams();
     const [blogPosts, setBlogPosts] = useState([]);
     const [isSmallScreen, setIsSmallScreen] = useState(false);
 
     useEffect(() => {
-        client
-            .getEntries({ content_type: "ingnNyheder", 'fields.slug': postId })
-            .then((res) => {
-                if (res.items.length > 0) {
-                    setBlogPosts(res.items.slice(3, 4)); 
-                } else {
-                    setBlogPosts([]);
-                }
-            })
-            .catch((err) => console.log(err));
-    }, [postId]);
+        const fetchBlogPosts = async () => {
+            try {
+                // Filter entry IDs for "Indland" based on routes containing "/indland"
+                const indlandEntryIds = Object.entries(entryIdMapping)
+                    .filter(([key, value]) => value.includes('/indland'))
+                    .map(([key]) => key);
+
+                const response = await client.getEntries({
+                    content_type: "ingnNyheder",
+                    'sys.id[in]': indlandEntryIds.join(',')
+                });
+
+                setBlogPosts(response.items);
+            } catch (error) {
+                console.error('Error fetching blog posts:', error);
+                setBlogPosts([]); // Reset blog posts on error
+            }
+        };
+
+        fetchBlogPosts();
+    }, []);
 
     useEffect(() => {
         const handleResize = () => {
@@ -55,7 +64,7 @@ const Indland = () => {
                         </Link>
                     ))
                 ) : (
-                    <p>No blog posts found with the specified slug.</p>
+                    <p>No blog posts found with the specified category.</p>
                 )}
             </div>
         </div>
@@ -63,4 +72,3 @@ const Indland = () => {
 };
 
 export default Indland;
-

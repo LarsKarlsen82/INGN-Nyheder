@@ -1,57 +1,20 @@
-//Login.jsx
-import React, { useState } from 'react';
+import React from 'react';
 
 const Login = () => {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [loggedIn, setLoggedIn] = useState(false);
-
-    const handleLogin = (e) => {
-        e.preventDefault();
-        // Here you can perform your authentication logic
-        // For simplicity, let's compare the entered username and password with hardcoded values
-        if (username === 'admin' && password === 'password') {
-            // If authentication is successful, set loggedIn to true
-            setLoggedIn(true);
-        } else {
-            // If authentication fails, you can display an error message or handle it as needed
-            alert('Invalid username or password');
-        }
+    const handleLogin = () => {
+        // Open Contentful login page in a new window
+        window.open('https://be.contentful.com/login', '_blank');
     };
 
     return (
         <div className="container">
-            <h1>Login</h1>
-            {!loggedIn ? (
-                <form onSubmit={handleLogin}>
-                    <div className="form-group">
-                        <label>Username:</label>
-                        <input
-                            type="text"
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
-                            className="form-control"
-                            required
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label>Password:</label>
-                        <input
-                            type="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            className="form-control"
-                            required
-                        />
-                    </div>
-                    <button type="submit" className="btn btn-primary">Login</button>
-                </form>
-            ) : (
-                <div>
-                    <p>You are logged in as admin.</p>
-                    {/* Here you can render your admin content */}
-                </div>
-            )}
+            <h1 className='text-2xl font-bold'>Login</h1>
+            <br />
+            <button onClick={handleLogin} className="btn btn-primary" style={{ borderRadius: '5px', border: '2px solid blue', padding: '5px 10px' }}>Login to Contentful</button>
+            <br />
+            <br />
+            <p> You have to have granted permission to edit, create or delete articles from your company.</p>
+            <p>Contact your web developer for more <a href="mailto:lars.karlsen82@gmail.com" style={{ color: 'blue' }}>information</a></p>
         </div>
     );
 };

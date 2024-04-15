@@ -1,4 +1,5 @@
 //UdlandSubLink2.jsx
+//UdlandSubLink.jsx
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { client } from '../../Static/contentfulClient';
@@ -15,7 +16,10 @@ const UdlandSubLink2 = () => {
             .getEntries({ content_type: "ingnNyheder", 'fields.slug': postId })
             .then((res) => {
                 if (res.items.length > 0) {
-                    setBlogPost(res.items[1]); // Set the first blog post found with the specified slug
+                    // Assuming you have the EntryID of the desired post, replace 'YOUR_ENTRY_ID' with it
+                    const entryId = '6tciziZQGqrZI2xXmrmRCm';
+                    const foundPost = res.items.find(item => item.sys.id === entryId);
+                    setBlogPost(foundPost);
                 } else {
                     setBlogPost(null);
                 }
@@ -40,7 +44,7 @@ const UdlandSubLink2 = () => {
                             <img src={blogPost.fields.blogImage.fields.file.url} className="w-full mb-4" alt={blogPost.fields.blogTitle} />
                         )}
                         <h2 className="text-xl font-semibold mb-2">{blogPost.fields?.blogTitle || 'Unknown Title'}</h2>
-                        <p className="text-gray-500 mb-2">
+                        <p className="text-red-600 mb-2">
                             {blogPost.fields?.createdDate ? (
                                 new Intl.DateTimeFormat('da-DK', {
                                     timeZone: 'Europe/Copenhagen',
@@ -54,13 +58,12 @@ const UdlandSubLink2 = () => {
                             Af <span className="post-author">{blogPost.fields?.blogAuthor || 'Unknown Author'}</span>
                         </p>
                         <div className="post-content">
-                        {/* Use ReactMarkdown with rehypeRaw to render HTML content */}
-                        <ReactMarkdown rehypePlugins={[rehypeRaw]}>
-                            {/* Replace newline characters with <br> tags */}
-                            {blogPost.fields?.postContent.replace(/\n/g, '<br>')} 
-                        </ReactMarkdown>
-                    </div>
-
+                            {/* Use ReactMarkdown with rehypeRaw to render HTML content */}
+                            <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+                                {/* Replace newline characters with <br> tags */}
+                                {blogPost.fields?.postContent.replace(/\n/g, '<br>')}
+                            </ReactMarkdown>
+                        </div>
                     </div>
                 ) : (
                     <p>No blog post found with the specified ID.</p>

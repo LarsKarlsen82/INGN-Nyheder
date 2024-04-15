@@ -5,7 +5,7 @@ import { client } from '../../Static/contentfulClient';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw'; // Import rehypeRaw
 
-const TeknologiSubLink = () => {
+const TeknologiSubLink2 = () => {
     const { postId } = useParams();
     const [blogPost, setBlogPost] = useState(null);
     const [breaks, setBreaks] = useState([]);
@@ -16,7 +16,7 @@ const TeknologiSubLink = () => {
             .then((res) => {
                 if (res.items.length > 0) {
                     // Assuming you have the EntryID of the desired post, replace 'YOUR_ENTRY_ID' with it
-                    const entryId = '1WxdjVJBQNFXlw4QJ6lH8u';
+                    const entryId = '26sBSTG22th5Ey1yufpJ5m';
                     const foundPost = res.items.find(item => item.sys.id === entryId);
                     setBlogPost(foundPost);
                 } else {
@@ -81,4 +81,4 @@ const TeknologiSubLink = () => {
     );
 };
 
-export default TeknologiSubLink;
+export default TeknologiSubLink2;

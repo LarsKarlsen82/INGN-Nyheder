@@ -41,3 +41,19 @@ rehype-raw er et Rehype-plugin, der tillader rå HTML og "farlige" tags som "scr
 * tailwind-css
 
 Et værktøj-first CSS-rammeværk til oprettelse af responsive og tilpassede brugergrænseflader. Det giver en række foruddefinerede hjælpeprogramsklasser til styling af HTML-elementer.
+
+
+Start siden:
+1. Clone min repository
+2. Åbn VS code
+3. Åbn Terminalen
+4. Tast "npm run dev"
+5. Klik på den lokale link
+
+Back-end = Contentful.com
+Front-end = lavet ifølge opgaven "INGN Design"
+
+Der er lavet :
+Alle: Overskrifter for alle artikler
+* Nå man klikker på "Læs mere" så videresendes man direkte til den pågældende side
+* Links på NavBAr viser alle artikler indenfor en kategori f.eks. "Indland"
