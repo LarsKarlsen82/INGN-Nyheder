@@ -38,7 +38,7 @@ const Home = ({ setSelectedPost }) => {
         const fetchBreakingNewsPost = async () => {
             try {
                 const res = await client.getEntries({ content_type: "ingnNyheder" });
-                const entryId = '3A9y9NiIbm7SZ1RykaPXT'; // Replace 'YOUR_ENTRY_ID' with the desired entry ID
+                const entryId = '2BEVzt02xl4VJrBTqgF0IP'; // Replace 'YOUR_ENTRY_ID' with the desired entry ID
                 const foundPost = res.items.find(item => item.sys.id === entryId);
                 setBreakingNewsPost(foundPost);
             } catch (error) {
@@ -63,7 +63,7 @@ const Home = ({ setSelectedPost }) => {
     }
 
     return (
-        <div className="container mx-auto px-4 max-w-screen-2xl mb-12" style={{ marginTop: '6rem' }}>
+        <div className="container mx-auto px-4 max-w-screen-2xl mb-40" style={{ marginTop: '6rem' }}>
             {/* Breaking News Section */}
             {breakingNewsPost && (
                 <div id="breaking-news-container" className={`relative overflow-hidden ${isSmallScreen ? '' : ''}`}>

@@ -1,4 +1,3 @@
-//NoPage.jsx
 import React from 'react';
 import errorGif from '../../assets/images/Error_404.gif';
 
@@ -13,7 +12,7 @@ const NoPage = () => {
           <img
             src={errorGif}
             alt="404 Not Found"
-            className="w-full md:w-3/4 lg:w-1/2 xl:w-1/3 h-auto"
+            className="w-600 h-600"
           />
         </div>
       </div>
