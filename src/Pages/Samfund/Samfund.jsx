@@ -51,7 +51,7 @@ const Samfund = () => {
     }
 
     return (
-        <div className="container mx-auto px-4 max-w-screen-2xl">
+        <div className="container mx-auto px-4 max-w-screen-2xl mt-20 mb-56">
             <h1 className="text-3xl font-bold mb-4">Samfund</h1>
             <br />
             <div className={`max-w-xl mx-auto ${isSmallScreen ? 'sm:max-w-full' : 'sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl'} flex flex-col gap-4`}>

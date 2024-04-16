@@ -20,6 +20,8 @@ import Samfund from '../../Pages/Samfund/Samfund';
 import SamfundSubLink from '../../Pages/Samfund/SamfundSubLink';
 import Login from '../../Pages/Login/Login';
 import NoPage from '../../Pages/NoPage/NoPage';
+import SamfundSubLink2 from '../../Pages/Samfund/SamfundSubLink2';
+
 
 const generateEntryIdMapping = (routes) => {
     const entryIdMapping = {};
@@ -59,6 +61,7 @@ const AppRouter = () => {
         { path: "/sport", element: <Sport /> },
         { path: "/samfund", element: <Samfund /> },
         { path: "/samfund/sublink", element: <SamfundSubLink /> },
+        { path: "/samfund/sublink2", element: <SamfundSubLink2 /> },
         { path: "/login", element: <Login /> },
         { path: "*", element: <NoPage /> }
     ];

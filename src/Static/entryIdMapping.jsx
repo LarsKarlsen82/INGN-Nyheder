@@ -7,7 +7,8 @@ const entryIdMapping = {
     "2BEVzt02xl4VJrBTqgF0IP": "/indland/sublink2",
     "1WxdjVJBQNFXlw4QJ6lH8u": "/teknologi/sublink",
     "26sBSTG22th5Ey1yufpJ5m": "/teknologi/sublink2",
-    "t0DgDutgcW0aJZcwvsBHg": "/samfund/sublink"
+    "t0DgDutgcW0aJZcwvsBHg": "/samfund/sublink",
+    "4s3VqxiWaVWfspG0pzGSt2": "/samfund/sublink2"
     // Add more mappings as needed
 };
 
