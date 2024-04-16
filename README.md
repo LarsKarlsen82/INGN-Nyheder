@@ -42,6 +42,16 @@ rehype-raw er et Rehype-plugin, der tillader rå HTML og "farlige" tags som "scr
 
 Et værktøj-first CSS-rammeværk til oprettelse af responsive og tilpassede brugergrænseflader. Det giver en række foruddefinerede hjælpeprogramsklasser til styling af HTML-elementer.
 
+Ekstra ting:
+* Breaking News:
+Man kan manuelt tilføje entry id til Home.jsx, så man vælger den rette Breaking news
+
+* Publish Yes or No:
+Hvis man klikker på No i publish, så vises en teknisk fejl image på artiklen. 
+
+* NoPage:
+Hvis man laver en forkert link, så vises error 404
+
 
 Start siden:
 1. Clone min repository
@@ -58,3 +68,7 @@ Alle: Overskrifter for alle artikler
 * Nå man klikker på "Læs mere" så videresendes man direkte til den pågældende side
 * Links på NavBAr viser alle artikler indenfor en kategori f.eks. "Indland"
 * Login referer kun til contentful.com, nyhedsvirksomhedens ansvarlige skal give adgang til journalisten, ellers er der link til min email.
+
+Måde at arbejde med INGN-nyheder: 
+
+Den ansvarlige kan redigere de eksisterende artikler afhængig af hvilet emne der er. Ellers kan der oprettes nyt artikel ved at kontakte mig. Jeg kan også give adgang til nye brugere, hvis ønskes af den ansvarlige.

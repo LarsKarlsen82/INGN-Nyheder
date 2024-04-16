@@ -132,7 +132,7 @@ const NavBar = () => {
 
   return (
     <div className="w-full bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-400">
-      <header className="fixed top-0 left-0 z-10 w-full">
+      <header className="fixed top-0 left-0 z-10 w-full shadow-md">
         <nav className="flex flex-wrap items-center justify-between py-4 md:py-0 px-4 text-lg text-gray-700 bg-white">
           <div>
             <Link to="/">
