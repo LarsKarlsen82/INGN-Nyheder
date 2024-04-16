@@ -24,11 +24,14 @@
 }
 
 body {
-  margin: 6rem;
+  margin: 0 auto; /* Set left and right margins to auto to center the body horizontally */
   background-color: #F6F3F3;
   width: 100%; /* Adjusted for responsiveness */
   padding-bottom: 5rem;
   max-width: 1200px;
+  display: flex; /* Use flexbox to center vertically */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
 }
 
 footer {
@@ -252,6 +255,40 @@ footer {
   } 
 }
 
+@media (min-width: 1900px) {
+  #breaking-news-container {
+    width: 61.5%; /* Maintain width for screens 2560x1440 */
+  }
+
+  .breaking-news-headline {
+    margin-left: 35%; /* Maintain margin for larger screens */
+  }
+  .breaking-news-title {
+    width: 20%; /* Maintain width for larger screens */
+    right: auto; /* Move breaking-news-title to the right */
+    left: -20px; /* Adjust left positioning */
+  }
+}
+
+
+@media (max-width: 1024px) {
+  body {
+    margin: 6rem; /* Maintain margin for larger screens */
+  }
+
+  .breaking-news-headline {
+    margin-left: 30%; /* Maintain margin for larger screens */
+  }
+
+  .breaking-news-title {
+    width: 16%; /* Maintain width for larger screens */
+  }
+
+  #breaking-news-container {
+    width: 77%; /* Maintain width for larger screens */
+  }
+}
+
 @media (min-width: 768px) and (max-width: 1023px) {
   body {
     margin: 3rem; /* Adjusted for responsiveness */
@@ -270,9 +307,15 @@ footer {
   }
 }
 
+/* Add new media query for screens below 576px */
 @media (max-width: 575px) {
+  /* Override existing styles to align content to the left */
+  body {
+    justify-content: flex-start; /* Align content to the left */
+    align-items: flex-start; /* Align content to the left */
+  }
 
-
+  /* Update other styles for smaller screens */
   .max-w-xl {
     margin-left: 0;
     padding: 0;

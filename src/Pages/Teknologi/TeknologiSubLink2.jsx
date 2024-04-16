@@ -35,7 +35,7 @@ const TeknologiSubLink2 = () => {
     }, [postId]);
 
     return (
-        <div className="container mx-auto px-4 max-w-screen-2xl">
+        <div className="container mx-auto px-4 max-w-screen-2xl mb-56">
             <div className="max-w-xl mx-auto sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl">
                 {blogPost ? (
                     <div className="bg-white p-4 rounded-lg">
@@ -82,3 +82,5 @@ const TeknologiSubLink2 = () => {
 };
 
 export default TeknologiSubLink2;
+
+

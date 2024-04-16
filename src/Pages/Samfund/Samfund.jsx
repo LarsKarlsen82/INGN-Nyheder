@@ -3,10 +3,12 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { client } from '../../Static/contentfulClient';
 import entryIdMapping from "../../Static/entryIdMapping";
+import TechnicalDifficultiesImage from '../../assets/images/technical-difficulties.jpeg'; // Import the image
 
 const Samfund = () => {
     const [blogPosts, setBlogPosts] = useState([]);
     const [isSmallScreen, setIsSmallScreen] = useState(false);
+    const [loading, setLoading] = useState(true); // Loading state
 
     useEffect(() => {
         const fetchBlogPosts = async () => {
@@ -24,7 +26,8 @@ const Samfund = () => {
                 setBlogPosts(response.items);
             } catch (error) {
                 console.error('Error fetching blog posts:', error);
-                setBlogPosts([]); // Reset blog posts on error
+            } finally {
+                setLoading(false); // Set loading to false regardless of success or error
             }
         };
 
@@ -43,6 +46,10 @@ const Samfund = () => {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
+    if (loading) {
+        return null; // Show nothing while loading
+    }
+
     return (
         <div className="container mx-auto px-4 max-w-screen-2xl">
             <h1 className="text-3xl font-bold mb-4">Samfund</h1>
@@ -52,19 +59,25 @@ const Samfund = () => {
                     blogPosts.map((blogPost) => (
                         <Link key={blogPost.sys.id} to={entryIdMapping[blogPost.sys.id]} className="hover:underline">
                             <div className="bg-white p-4 rounded-lg hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105">
-                                {blogPost.fields && blogPost.fields.blogImage && blogPost.fields.blogImage.fields && (
-                                    <img 
-                                        src={blogPost.fields.blogImage.fields.file.url} 
-                                        className={`w-full h-auto mb-4 rounded-lg ${isSmallScreen ? 'object-contain' : ''}`} 
-                                        alt={blogPost.fields.blogTitle} 
-                                    />
+                                {blogPost.fields.publish ? (
+                                    <>
+                                        {blogPost.fields && blogPost.fields.blogImage && blogPost.fields.blogImage.fields && (
+                                            <img 
+                                                src={blogPost.fields.blogImage.fields.file.url} 
+                                                className={`w-full h-auto mb-4 rounded-lg ${isSmallScreen ? 'object-contain' : ''}`} 
+                                                alt={blogPost.fields.blogTitle} 
+                                            />
+                                        )}
+                                        <h2 className="text-xl font-semibold mb-2">{blogPost.fields?.blogTitle || 'Unknown Title'}</h2>
+                                    </>
+                                ) : (
+                                    <img src={TechnicalDifficultiesImage} className="w-full mb-4" alt="Technical Difficulties" />
                                 )}
-                                <h2 className="text-xl font-semibold mb-2">{blogPost.fields?.blogTitle || 'Unknown Title'}</h2>
                             </div>
                         </Link>
                     ))
                 ) : (
-                    <p>No blog posts found with the specified category.</p>
+                    <p>No blog posts found with the specified category.</p> // Render the message if no blog posts are found
                 )}
             </div>
         </div>

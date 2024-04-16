@@ -88,7 +88,7 @@ const generateEntryIdMapping = (routes) => {
             // Use the path directly as the key and assign the corresponding link
             const link = `http://localhost:3000${path}`;
             entryIdMapping[path] = link;
-            console.log(`Mapped path: ${path} to link: ${link}`);
+            //console.log(`Mapped path: ${path} to link: ${link}`);
         }
     });
 

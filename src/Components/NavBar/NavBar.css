@@ -1,0 +1,12 @@
+/* NavBar.css */
+@media (min-width: 1900px) {
+    .center-ul {
+      justify-content: center;
+      margin-left: -20%;
+    }
+
+
+      .ingn-logo-large {
+        margin-left: 372%;
+      }
+  }
