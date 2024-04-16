@@ -1,3 +1,4 @@
+//NoPage.jsx
 import React from 'react';
 import errorGif from '../../assets/images/Error_404.gif';
 

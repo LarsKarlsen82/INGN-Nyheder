@@ -1,17 +1,3 @@
-// const entryIdMapping = {
-//     "5CFX68QxZyVgWTESei9WDM": "http://localhost:3000/udland/sublink",
-//     "6tciziZQGqrZI2xXmrmRCm": "http://localhost:3000/udland/sublink2",
-//     "3A9y9NiIbm7SZ1RykaPXT": "http://localhost:3000/sport/sublink",
-//     "4xZWlKUavWJHnIvHZPOEc3": "http://localhost:3000/politik/sublink",
-//     "4E0vv1I2DwrMr8yJpUtKuQ": "http://localhost:3000/indland/sublink",
-//     "2BEVzt02xl4VJrBTqgF0IP": "http://localhost:3000/indland/sublink2",
-//     "1WxdjVJBQNFXlw4QJ6lH8u": "http://localhost:3000/teknologi/sublink",
-//     "t0DgDutgcW0aJZcwvsBHg": "http://localhost:3000/samfund/sublink"
-//     // Add more mappings as needed
-// };
-
-// export default entryIdMapping;
-
 const entryIdMapping = {
     "5CFX68QxZyVgWTESei9WDM": "/udland/sublink",
     "6tciziZQGqrZI2xXmrmRCm": "/udland/sublink2",
