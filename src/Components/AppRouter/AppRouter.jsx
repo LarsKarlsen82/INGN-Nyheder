@@ -33,7 +33,7 @@ const generateEntryIdMapping = (routes) => {
         // Skip routes with '*' as it's a catch-all route
         if (path !== "*") {
             // Use the path directly as the key and assign the corresponding link
-            const link = `http://localhost:3000${path}`;
+            const link = `${path}`;
             entryIdMapping[path] = link;
             //console.log(`Mapped path: ${path} to link: ${link}`);
         }

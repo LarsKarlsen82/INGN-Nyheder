@@ -105,41 +105,45 @@ const Home = ({ setSelectedPost }) => {
             {/* Blog Posts Section */}
             <div className={`grid grid-cols-1 md:grid-cols-3 gap-4 mt-8`}>
                 {/* Latest News Section */}
-                {blogPosts.filter(post => post.sys.id !== breakingNewsPost?.sys.id).map((post, index) => (
-                    <div
-                        key={post.sys.id}
-                        className={`grid-item ${
-                            isSmallScreen
-                                ? 'col-span-1'
-                                : index === 0  ? 'col-span-1 md:col-span-2' : (index >= 1 && index <= 4) || (index >= 7 && index <= 11) ? 'col-span-1' : 'col-span-1 md:col-span-2'
-                        }`}
-                        style={{ display: 'flex', flexDirection: index === 5 || index === 6 ? 'row' : 'column' }} // Adjust flex direction for index 5 and 6
-                    >
-                        <div className="bg-white rounded-lg overflow-hidden" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-                            <div className="p-4" style={{ flex: 1 }}>
-                                <h2 className="text-xl font-semibold mb-2">{post.fields?.blogTitle || 'Unknown Title'}</h2>
-                                <p className="text-red-600 mb-2">
-                                    {post.fields?.createdDate ? (
-                                        new Intl.DateTimeFormat('da-DK', { // Use Danish locale
-                                            timeZone: 'Europe/Copenhagen',
-                                            day: '2-digit',
-                                            month: 'long',
-                                            year: 'numeric',
-                                        }).format(new Date(post.fields.createdDate))
-                                    ) : (
-                                        'Unknown Date'
-                                    )} -
-                                    Af <a href="https://nittartagaq.netlify.app/" className="post-author">{post.fields?.blogAuthor || 'Unknown Author'}</a>
-                                </p>
-                                <p className="mb-4">{post.fields?.blogSummary || 'No summary available'}</p>
-                                <button className="button button1 block mb-4 font-bold" onClick={() => handleReadMore(post.sys.id)}>Læs mere</button>
+                {blogPosts
+                    .filter(post => post.sys.id !== breakingNewsPost?.sys.id && post.fields?.publish) // Filter out breaking news and unpublished posts
+                    .map((post, index) => (
+                        <div
+                            key={post.sys.id}
+                            className={`grid-item ${
+                                isSmallScreen
+                                    ? 'col-span-1'
+                                    : index === 0 ? 'col-span-1 md:col-span-2' : (index >= 1 && index <= 4) || (index >= 7 && index <= 11) ? 'col-span-1' : 'col-span-1 md:col-span-2'
+                            }`}
+                            style={{ display: 'flex', flexDirection: index === 5 || index === 6 ? 'row' : 'column' }}
+                        >
+                            <div className="bg-white rounded-lg overflow-hidden" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+                                <div className="p-4" style={{ flex: 1 }}>
+                                    <h2 className="text-xl font-semibold mb-2">{post.fields?.blogTitle || 'Unknown Title'}</h2>
+                                    <p className="text-red-600 mb-2">
+                                        {post.fields?.createdDate ? (
+                                            new Intl.DateTimeFormat('da-DK', { // Use Danish locale
+                                                timeZone: 'Europe/Copenhagen',
+                                                day: '2-digit',
+                                                month: 'long',
+                                                year: 'numeric',
+                                            }).format(new Date(post.fields.createdDate))
+                                        ) : (
+                                            'Unknown Date'
+                                        )} -
+                                        Af <a href="https://nittartagaq.netlify.app/" className="post-author">{post.fields?.blogAuthor || 'Unknown Author'}</a>
+                                    </p>
+                                    <p className="mb-4">{post.fields?.blogSummary || 'No summary available'}</p>
+                                    <button className="button button1 block mb-4 font-bold" onClick={() => handleReadMore(post.sys.id)}>Læs mere</button>
+                                </div>
+                                {post.fields && post.fields.blogImage && post.fields.blogImage.fields ? (
+                                    <img src={post.fields.blogImage.fields.file.url} className="w-full" alt={post.fields.blogTitle} style={{ flex: 1 }} />
+                                ) : (
+                                    <img src={TechnicalDifficultiesImage} className="w-full" alt="Technical Difficulties" style={{ flex: 1 }} />
+                                )}
                             </div>
-                            {post.fields && post.fields.blogImage && post.fields.blogImage.fields && post.fields.publish ? (
-                                <img src={post.fields.blogImage.fields.file.url} className="w-full" alt={post.fields.blogTitle} style={{ flex: 1 }} />
-                            ) : null}
                         </div>
-                    </div>
-                ))}
+                    ))}
             </div>
         </div>
     );
